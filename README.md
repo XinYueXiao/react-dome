@@ -18,3 +18,40 @@ const path = require('path');
 };
 ```
 -  执行 node_modules/.bin/webpack 即可在dist文件下查看app.js的打包文件
+-  添加plugins,安装插件[HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/#root "HtmlWebpackPlugin")
+
+```javascript
++ var HtmlWebpackPlugin = require('html-webpack-plugin');
+  const path = require('path');
+
+  module.exports = {
+    ......
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        })
+     ]
+ };
+```
+- 添加loader，并添加module
+
+`yarn add babel-core@6.26.0 babel-preset-env@1.6.1 babel-loader@7.1.2 --dev`
+```javascript
+module.exports = {
+...
+module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
+            }
+        ]
+    }
+...
+```
