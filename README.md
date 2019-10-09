@@ -55,7 +55,7 @@ module: {
 ...
 ```
 
-##2. react安装与配置
+## 2. react安装与配置
 ### 2.1 安装相关依赖
 
 `yarn add babel-preset-react@6.24.1`
