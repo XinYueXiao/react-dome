@@ -351,3 +351,40 @@ module.exports = {
 };
 ```
 
+## 6.配置 [webpack-dev-server](https://webpack.js.org/guides/development/#using-webpack-dev-server "webpack-dev-server")
+
+发现在每次更新时都要执行` node_modules/.bin/webpack`，很繁琐，则加入`webpack-dev-server` 时时更新修改，
+步骤如下：
+
+- 安装 `yarn add webpack-dev-server@2.9.7 --dev`并配置`webpack.config.js`
+
+````javascript
+output: {
+        path: path.resolve(__dirname, 'dist'),
+     +   publicPath: '/dist/', //解决启动后，字体文件404错误
+        filename: 'js/app.js'
+    },
+		...,
+devServer: {
+
+    }
+````
+- 使用`node_modules/.bin/webpack-dev-server` 进入 `http://localhost:8080/dist/` 则可以时时更新修改
+- 配置端口号
+
+```javascript
+devServer: {
+        port: 8022,
+    }
+```
+- 在 `package.json` 配置打包命令
+
+```javascript
+"scripts": {
+    "dev": "node_modules/.bin/webpack-dev-server",
+	//配置线上打包命令
+    "dist": "node_modules/.bin/webpack -p"
+  },
+```
+
+

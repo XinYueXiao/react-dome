@@ -7,6 +7,7 @@ module.exports = {
     entry: './src/app.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/',
         filename: 'js/app.js'
     },
     module: {
@@ -64,7 +65,6 @@ module.exports = {
                     },
                 ],
             },
-
         ]
     },
     plugins: [
@@ -79,5 +79,8 @@ module.exports = {
             name: 'common',//手动指定的公共模块
             filename: 'js/base.js'
         })
-    ]
+    ],
+    devServer: {
+        port: 8022,
+    }
 };
