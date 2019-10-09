@@ -4,3 +4,4 @@ server/crawler/chrome/
 dist/
 yarn.lock
 *.local
+*.min.css

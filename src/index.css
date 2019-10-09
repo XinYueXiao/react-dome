@@ -1,0 +1,7 @@
+body {
+  background: url("./banner.jpg");
+}
+
+body #app {
+  font-size: 100px;
+}
